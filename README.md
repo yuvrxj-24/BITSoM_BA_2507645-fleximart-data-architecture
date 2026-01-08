@@ -75,3 +75,4 @@ Solution: Implemented transformation rules for deduplication, missing value hand
 
 Ensuring foreign key correctness in the data warehouse
 Solution: Loaded dimensions first (date/product/customer), then inserted fact rows referencing valid keys only, and validated counts and joins using OLAP queries.
+Verification: See verification_steps.md for quick validation queries.
