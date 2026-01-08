@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+.env
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Database / logs
+*.db
+*.log
+
+# Archives
+*.zip

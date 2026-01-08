@@ -1,0 +1,31 @@
+FlexiMart Data Quality Report
+====================================
+
+Records Processed
+-----------------
+customers_raw.csv: 26
+products_raw.csv:  20
+sales_raw.csv:     41
+
+Duplicates Removed
+------------------
+customers: 1
+products:  0
+sales:     1
+
+Missing Values Handled
+----------------------
+customers missing emails filled: 5
+products missing prices filled:  3
+products missing stock filled:   1
+sales missing customer_id:       3
+sales missing product_id:        2
+sales dropped (missing required): 5
+
+Records Loaded Successfully
+---------------------------
+customers_loaded: 25
+products_loaded: 20
+orders_loaded: 35
+order_items_loaded: 35
+sales_rows_unmapped_dropped: 0

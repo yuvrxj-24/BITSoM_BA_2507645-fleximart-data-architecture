@@ -1,0 +1,13 @@
+TASK 2.1 — NOSQL JUSTIFICATION REPORT 
+
+SECTION A: LIMITATIONS OF RDBMS 
+
+A traditional relational database struggles when products have highly different attributes because relational tables require a fixed schema. If FlexiMart sells laptops (RAM, processor, battery) and shoes (size, color, material), a single products table would either need many nullable columns (leading to sparse, messy data) or separate tables for each product type (making queries and joins more complex). Frequent additions of new product types would require ALTER TABLE changes or new tables, which becomes time-consuming and risky in production. Storing customer reviews in an RDBMS is also harder because reviews are naturally nested and repeatable; in SQL, this typically requires an extra reviews table and joins to fetch a product with its reviews. As review volume grows, queries become heavier and the system becomes harder to maintain. Overall, rigid schemas and frequent structural changes make relational systems less flexible for a diverse product catalog.
+
+SECTION B: NOSQL BENEFITS 
+
+MongoDB fits this use case because it stores data as flexible JSON-like documents. Each product document can include only the attributes that matter for that product type (for example, laptops can store RAM and processor, while shoes store size and color) without changing the database schema. This flexibility makes it easy to add new product types quickly. MongoDB also supports embedded documents and arrays, which is ideal for storing reviews directly inside the product document. That allows the application to fetch a product and its reviews in one read, instead of joining across multiple tables. MongoDB is also designed to scale horizontally using sharding, which helps when the product catalog and review data grow very large. For fast-evolving e-commerce catalogs where attributes change often and nested data is common, MongoDB’s document model aligns well with real-world product data.
+
+SECTION C: TRADE-OFFS 
+
+Two disadvantages of MongoDB compared to MySQL are consistency/transaction complexity and relational querying limitations. While MongoDB supports transactions, complex multi-document transactions can be slower and harder to manage than in relational databases, especially for highly normalized, multi-table workloads like payments and inventory updates. Second, MongoDB is not naturally optimized for relational joins; although it provides $lookup, heavy join-like analytics across many collections can become less efficient and more complex than SQL. Also, enforcing strict constraints (like foreign keys) is not built-in in the same way, so data validation often shifts more responsibility to the application layer.
